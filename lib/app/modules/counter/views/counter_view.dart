@@ -14,38 +14,48 @@ class CounterView extends GetView<CounterController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column( 
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Obx(
-              ()=>Text(controller.bilangan.toString())
-              ),
-            Row(  
+          children: [
+            Obx(() => Text(controller.bilangan.toString())),
+            SizedBox(height: 10),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [ 
+              children: [
                 ElevatedButton(
                   onPressed: () {
                     controller.tambahSatu();
-                }, 
-                child: Icon(Icons.add),
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 146, 235, 214), // Ganti dengan warna yang diinginkan
+                  ),
+                  child: Icon(Icons.add),
                 ),
+                SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
                     controller.kurangSatu();
-                }, 
-                child: Icon(Icons.minimize),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    controller.reset();
-                }, 
-                child: Icon(Icons.refresh),
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 146, 235, 214), // Ganti dengan warna yang diinginkan
+                  ),
+                  child: Icon(Icons.minimize),
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                controller.reset();
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 146, 235, 214), // Ganti dengan warna yang diinginkan
+              ),
+              child: Icon(Icons.refresh),
+            ),
           ],
-          ),
         ),
+      ),
     );
   }
 }
